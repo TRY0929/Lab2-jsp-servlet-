@@ -5,80 +5,72 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="./css/index.css">
-<title>test</title>
+	<title>index</title>
+	<link id="css" rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}//css/index.css">
+	<script type="text/javascript" src="${pageContext.request.contextPath}//js/jQuery-3.5.1.js"></script>
+	<script src="${pageContext.request.contextPath}//js/index.js"></script>
 </head>
 <body>
-	<form action="AddServlet" method="post">
-		<table id="gradient-style" summary="Meeting Results">
-			<caption>数据库表person插入信息</caption>
-		    <thead>
-		    	<tr>
-		        	<th scope="col">条目</th>
-		            <th scope="col">值</th>
-		        </tr>
-		    </thead>
-		    <tfoot>
-		    	<tr>
-		        	<td colspan="4">
-		        		<input type="submit" class="btn-two yellow block">
-		        	</td>
-		        </tr>
-		    </tfoot>
-		    <tbody>
-		    	<tr>
-		        	<td>Username</td>
-		            <td class="input-text">
-		            	<input type="text" name="username" />
-		            </td>
-		        </tr>
-		        <tr>
-		        	<td>Name</td>
-		            <td class="input-text">
-		            	<input type="text" name="name" />
-		            </td>
-		        </tr>
-		        <tr>
-		        	<td>Age</td>
-		            <td class="input-text">
-		            	<input type="text" name="age" />
-		            </td>
-		        </tr>
-		        <tr>
-		        	<td>Telenum</td>
-		            <td class="input-text">
-		            	<input type="text" name="teleno" />
-		            </td>
-		        </tr>
-		    </tbody>
-		</table>
-	</form>
-	<form action="DeleteServlet" method="post">
-		<table id="gradient-style" summary="Meeting Results">
-			<caption>数据库表user删除信息</caption>
-		    <thead>
-		    	<tr>
-		        	<th scope="col">条目</th>
-		            <th scope="col">值</th>
-		        </tr>
-		    </thead>
-		    <tfoot>
-		    	<tr>
-		        	<td colspan="4">
-		        		<input type="submit" class="btn-two yellow block">
-		        	</td>
-		        </tr>
-		    </tfoot>
-		    <tbody>
-		    	<tr>
-		        	<td>Username</td>
-		            <td class="input-text">
-		            	<input type="text" name="username" />
-		            </td>
-		        </tr>
-		    </tbody>
-		</table>
-	</form>
+	<div class="container">
+		<div class="sub-container">
+			<div class="title">
+				<h3 class=person-title-content>
+					数据表person插入信息
+				</h3>
+			</div>
+			<div class="table">
+				<form action="AddServlet" method="post">
+					<div class="item">
+						<label for="username" class="item-name">username</label>
+						<input class="item-input" type="text" name="username" id="username" autocomplete="off"
+							placeholder="请输入长度4~12字符"
+						 />
+					</div>
+					<div class="item">
+						<label for="age" class="item-name">age</label>
+						<input class="item-input" type="text" name="age" id="age" autocomplete="off"
+							placeholder="请输入0~99岁之间的数字"
+						/>
+					</div>
+					<div class="item">
+						<label for="name" class="item-name">name</label>
+						<input class="item-input" type="text" name="name" id="name" autocomplete="off"
+							placeholder="请输入长度4~12字符"
+						/>
+					</div>
+					<div class="item">
+						<label for="teleno" class="item-name">teleno</label>
+						<input class="item-input" type="text" name="teleno" id="teleno" autocomplete="off"
+							placeholder="请输入11位手机号码"
+						/>
+					</div>
+					<div class="submit">
+						<input class="submit-btn" type="submit" class="btn-two yellow block" value="插入" disabled>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+		<div class="sub-container">
+			<div class="title">
+				<h3 class=person-title-content>
+					数据表user删除信息
+				</h3>
+			</div>
+			<form action="DeleteServlet" method="post">
+				<div class="item">
+					<label for="username" class="item-name">username</label>
+					<input class="item-input" type="text" name="username" id="username" autocomplete="off"
+						placeholder="请输入长度4~12字符"
+					/>
+				</div>
+				<div class="submit">
+					<input class="submit-btn" type="submit" class="btn-two yellow block" value="删除" disabled>
+				</div>
+			</form>
+		</div>
+	</div>
+	
 </body>
 <%
 	DatabaseUtil databaseUtil = new DatabaseUtil();
